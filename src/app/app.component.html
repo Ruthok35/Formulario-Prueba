@@ -1,0 +1,75 @@
+<div class="container-fluid ">
+  <div class="row">
+    <div class=" col-sm-12 col-md-3 col-lg-3 p-0">
+      <img class="img-ok " src="assets/mini-market.jpg" alt="mini-market">
+    </div>
+    <div class=" col-sm-12 col-md-9 col-lg-9 form-ok py-4 px-5 text-white">
+        <hr>
+      <h2 class="text-white text-t">REGISTRATE</h2>
+        <p class="text-warning text-r">Completa tus datos</p>
+        <hr>
+        <form [formGroup]="registro" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Foto</label>
+              <input type="file" class="form-control-file caja-ok" id="exampleFormControlFile1" formControlName="foto" [ngClass]="{ 'is-invalid': submitted && f.foto.errors }">
+              <div *ngIf="submitted && f.foto.errors" class="invalid-feedback caja-ok-1-1">
+                <div *ngIf="f.foto.errors.required">Por favor, ingresa foto</div>
+              </div>
+            </div>
+              <div class="form-row">
+                  <input type="text" formControlName="nombre" class="form-control caja-ok" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" placeholder="Nombre">
+                  <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback caja-ok-1">
+                    <div *ngIf="f.nombre.errors.required">Por favor, ingresa tus Nombres</div>
+                  </div>
+                  <input type="text" formControlName="apellido" class="form-control caja-ok" [ngClass]="{ 'is-invalid': submitted && f.apellido.errors }" placeholder="Apellido">
+                  <div *ngIf="submitted && f.apellido.errors" class="invalid-feedback caja-ok-2">
+                    <div *ngIf="f.apellido.errors.required">Por favor, ingresa tus Apellido</div>
+                  </div>
+                  <div class="position-relative caja-ok">
+                  <input class="form-control" formControlName="fecha" placeholder="Fecha de nacimiento" [ngClass]="{ 'is-invalid': submitted && f.fecha.errors }" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                  <div class="input-group-append btn-ok">
+                    <button class="btn btn-outline-secondary calendar ico" (click)="d.toggle()" type="button"></button>
+                  </div>
+                  </div>
+                  <div *ngIf="submitted && f.fecha.errors" class="invalid-feedback caja-ok-3">
+                    <div *ngIf="f.fecha.errors.required">Por favor, ingresa tus Fecha de nacimiento</div>
+                  </div>
+                  <select class="form-control caja-ok" placeholder="Tipo de identidad" formControlName="tipoi" [ngClass]="{ 'is-invalid': submitted && f.tipoi.errors }">
+                    <option disabled selected>Selecciona una tipo de identidad</option>
+                    <option value="item 1">Cédula de ciudadanía</option>
+                    <option value="item 2">Cédula de extranjería</option>
+                    <option value="item 3">Registro Civil</option>
+                    <option value="item 4">Tarjeta de identidad</option>
+                    <option value="item 5">Pasaporte</option>
+                  </select>
+                  <div *ngIf="submitted && f.tipoi.errors" class="invalid-feedback caja-ok-4">
+                    <div *ngIf="f.tipoi.errors.required">Por favor, seleccione un tipo de identidad</div>
+                  </div>
+                  <input style="width: 48%; margin-right: 1em;" type="number" class="form-control" placeholder="Número de identidad" formControlName="numeroi" [ngClass]="{ 'is-invalid': submitted && f.numeroi.errors }">
+                  <div *ngIf="submitted && f.numeroi.errors" class="invalid-feedback caja-ok-5">
+                    <div *ngIf="f.numeroi.errors.required">Por favor, seleccione un número de identidad</div>
+                  </div> 
+                  <select class="form-control caja-ok" placeholder="Estado civil"  formControlName="estado" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }">
+                    <option disabled selected>Selecciona un estado civil</option>
+                    <option>Soltero</option>
+                    <option>Casado</option>
+                    <option>Separado</option>
+                    <option>Divorciado</option>
+                    <option>Viudo</option>
+                  </select> 
+                  <div *ngIf="submitted && f.estado.errors" class="invalid-feedback caja-ok-6">
+                    <div *ngIf="f.estado.errors.required">Por favor, seleccione un estado civil</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Firma</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="firma" [ngClass]="{ 'is-invalid': submitted && f.firma.errors }">
+                <div *ngIf="submitted && f.firma.errors" class="invalid-feedback caja-ok-1-6">
+                  <div *ngIf="f.firma.errors.required">Por favor, ingrese firma</div>
+                </div> 
+              </div>
+          <button type="submit" class="btn btn-warning px-4 float-right caja-ok">Enviar</button>
+        </form>
+      </div> 
+   </div>   
+</div>
